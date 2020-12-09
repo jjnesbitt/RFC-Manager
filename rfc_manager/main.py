@@ -4,11 +4,18 @@ import click
 import shutil
 from datetime import datetime
 from pathlib import Path
+from git.exc import InvalidGitRepositoryError
+import sys
 
 from rfc_manager.utils import get_context, get_github_username, burn_version
 
 
-context = get_context()
+try:
+    context = get_context()
+except InvalidGitRepositoryError:
+    click.echo("Error: rfc must be run inside a Git repository", err=True)
+    sys.exit(1)
+
 
 
 @click.group()

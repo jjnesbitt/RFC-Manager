@@ -3,7 +3,6 @@ import subprocess
 from functools import lru_cache
 from dataclasses import dataclass
 from pathlib import Path
-from click.exceptions import ClickException
 from git import Repo
 from git.exc import InvalidGitRepositoryError
 
@@ -27,16 +26,8 @@ def determine_project_root():
 
     try:
         repo = Repo(cwd)
-        urls = set(repo.remote().urls)
-        valid = {
-            "git@github.com:AlmightyYakob/RFC-Manager.git",
-            "https://github.com/AlmightyYakob/RFC-Manager.git",
-        }
-        if not valid & urls:
-            raise InvalidGitRepositoryError()
-
     except InvalidGitRepositoryError:
-        raise ClickException("Must be run in a checked-out RFC-Manager repository.")
+        raise
 
     return cwd
 
