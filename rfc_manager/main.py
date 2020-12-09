@@ -5,7 +5,7 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 
-from multinet_rfc.utils import get_context, get_github_username, burn_version
+from rfc_manager.utils import get_context, get_github_username, burn_version
 
 
 context = get_context()

@@ -29,14 +29,14 @@ def determine_project_root():
         repo = Repo(cwd)
         urls = set(repo.remote().urls)
         valid = {
-            "git@github.com:multinet-app/multinet-rfcs.git",
-            "https://github.com/multinet-app/multinet-rfcs.git",
+            "git@github.com:AlmightyYakob/RFC-Manager.git",
+            "https://github.com/AlmightyYakob/RFC-Manager.git",
         }
         if not valid & urls:
             raise InvalidGitRepositoryError()
 
     except InvalidGitRepositoryError:
-        raise ClickException("Must be run in a checked-out Multinet-RFC repository.")
+        raise ClickException("Must be run in a checked-out RFC-Manager repository.")
 
     return cwd
 
