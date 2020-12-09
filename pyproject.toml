@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "rfc_manager"
+version = "0.1.0"
+description = "A tool for automating the management of an RFC repository"
+authors = ["Jacob Nesbitt <jjnesbitt2@gmail.com>"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+click = "^7.1.2"
+pathlib = "^1.0.1"
+GitPython = "^3.1.11"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+rfc = "rfc_manager.main:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
